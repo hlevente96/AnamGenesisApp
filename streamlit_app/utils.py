@@ -179,10 +179,10 @@ def display_patient_data(data_name: str, patient_id: str, date: str, display: bo
         return df
 
     if df.empty:
-        with st.expander(f"{data_name.replace("_"," ").capitalize()} (NA)", expanded=False):
+        with st.expander(f"{data_name.replace('_',' ').capitalize()} (NA)", expanded=False):
             st.write(f"Patient has no known {data_name} until {date.date()}.")
     else:
-        with st.expander(f"{data_name.replace("_"," ").capitalize()}", expanded=False):
+        with st.expander(f"{data_name.replace('_',' ').capitalize()}", expanded=False):
             if data_name == "medications":
                 fig = create_medicine_timeline(df)
                 st.plotly_chart(fig)
