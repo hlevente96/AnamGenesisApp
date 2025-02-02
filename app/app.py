@@ -23,7 +23,7 @@ from utils import (
 def main() -> None:
     initialize_page()
     st.title("Anamnesis Generator 🚀")
-    load_css("./static/base.css")
+    load_css("base.css")
 
     column_1, column_2, column_3 = st.columns(COLUMN_RATIO)
     with column_1:

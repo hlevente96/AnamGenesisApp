@@ -5,7 +5,7 @@ import re
 import plotly.graph_objects as go
 import plotly.express as px
 from datetime import datetime
-import numpy as np
+import os
 
 COLUMN_RATIO = [6, 1, 6]
 DATA_INPUT = [
@@ -70,7 +70,8 @@ def reset_button() -> None:
     st.session_state.button_clicked = False
 
 
-def load_css(file_path: str):
+def load_css(file_name: str):
+    file_path = os.path.join(os.path.dirname(__file__), 'static', file_name)
     with open(file_path) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
