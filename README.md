@@ -33,7 +33,7 @@ Start the Poetry shell to activate the virtual environment:
 poetry shell
 ```
 ### 4. Run the Streamlit App
-Launch the Streamlit application from the steamlit_app folder by running:
+Launch the Streamlit application from the app folder by running:
 ```bash
 cd app
 streamlit run app.py
