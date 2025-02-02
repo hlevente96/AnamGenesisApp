@@ -5,7 +5,6 @@ from utils import (
     COLUMN_RATIO,
     initialize_page,
     typing_effect,
-    get_column_from_csv,
     get_discharge_report,
     get_date_options,
     filter_csv_by_id,
@@ -29,7 +28,6 @@ def main() -> None:
     column_1, column_2, column_3 = st.columns(COLUMN_RATIO)
     with column_1:
         # Selecting a patient
-        # patient_options = get_column_from_csv("../data/patients.csv", "Id") # Removed for the DEMO
         st.session_state.patient = st.selectbox(
             label="Please select a patient:",
             options=DEMO_PATIENTS,
@@ -85,7 +83,7 @@ def main() -> None:
         if st.session_state.patient and st.session_state.selected_date:
             # Present basic patient data
             basic_information = filter_csv_by_id(
-                "../data/patients.csv", st.session_state.patient, "Id"
+                "data/patients.csv", st.session_state.patient, "Id"
             )
             display_patient_basic_info(basic_information)
 

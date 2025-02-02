@@ -89,14 +89,10 @@ def typing_effect(text, speed=0.0005) -> None:
 
 
 def get_date_options(patient: str) -> list:
-    # Removed for DEMO
-    #encounters_data = filter_csv_by_id("../data/encounters.csv", patient, "PATIENT")
-    #available_times = encounters_data.START.tolist()
-
     available_times = DEMO_PATIENTS_TIMES[patient]
     formatted_times = [
         datetime.strptime(date_time, "%Y-%m-%dT%H:%M:%SZ").strftime("%Y-%m-%d at %I:%M:%S %p")
-        for date_time in available_times #[-n:]
+        for date_time in available_times
     ]
     return formatted_times
 
@@ -116,7 +112,7 @@ def filter_csv_by_id(file_path: str, column_value: str, column_name: str) -> pd.
 def get_discharge_report(patient: str, date: str) -> str:
     date = pd.to_datetime(date).tz_localize(None)
     discharge_reports = filter_csv_by_id(
-        "../data/discharge_reports_generated.csv", patient, "PATIENT"
+        "data/discharge_reports_generated.csv", patient, "PATIENT"
     )
     discharge_reports["START"] = pd.to_datetime(discharge_reports["START"], errors="coerce").dt.tz_localize(None)
     report = discharge_reports[discharge_reports.START == date]["generated_discharge_report"].iloc[0]
@@ -124,7 +120,7 @@ def get_discharge_report(patient: str, date: str) -> str:
 
 
 def get_anamnesis_data(
-    patient_id: str, date: str, file_path: str = "../data/anamnesis_data.csv"
+    patient_id: str, date: str, file_path: str = "data/anamnesis_data.csv"
 ) -> str:
     df = pd.read_csv(file_path)
     date = pd.to_datetime(date).tz_localize(None)
@@ -169,7 +165,7 @@ def customize_patient_date(df: pd.DataFrame, date: pd.Timestamp, column: str) ->
 
 def display_patient_data(data_name: str, patient_id: str, date: str, display: bool) -> pd.DataFrame:
     date = pd.to_datetime(date).tz_localize(None)
-    df = filter_csv_by_id(f"../data/{data_name}.csv", patient_id, "PATIENT")
+    df = filter_csv_by_id(f"data/{data_name}.csv", patient_id, "PATIENT")
     df = customize_patient_date(df, date, "START") \
         if "START" in df.columns else customize_patient_date(df, date, "DATE")
     df = df.reset_index(drop=True)

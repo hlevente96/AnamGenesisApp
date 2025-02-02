@@ -35,7 +35,6 @@ poetry shell
 ### 4. Run the Streamlit App
 Launch the Streamlit application from the steamlit_app folder by running:
 ```bash
-cd streamlit_app
 streamlit run app.py
 ```
 ### 5. Access the App
