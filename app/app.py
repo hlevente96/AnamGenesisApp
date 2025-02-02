@@ -149,7 +149,7 @@ def main() -> None:
         else:
             st.session_state.typing_done = False
             st.session_state.content = ""
-    st.markdown(load_html("./templates/footer.html"), unsafe_allow_html=True)
+    st.markdown(load_html("footer.html"), unsafe_allow_html=True)
 
 
 if __name__ == "__main__":

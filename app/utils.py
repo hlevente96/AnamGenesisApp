@@ -76,7 +76,8 @@ def load_css(file_name: str):
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 
-def load_html(file_path: str):
+def load_html(file_name: str):
+    file_path = os.path.join(os.path.dirname(__file__), 'templates', file_name)
     with open(file_path, "r") as file:
         html_content = file.read()
     return html_content
