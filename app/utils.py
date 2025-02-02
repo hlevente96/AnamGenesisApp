@@ -44,7 +44,7 @@ DEMO_PATIENTS_TIMES = {
 
 
 def initialize_page() -> None:
-    st.set_page_config(page_title="Anamnesis Generator", page_icon="🚀", layout="wide")
+    st.set_page_config(page_title="Anamnesis Generator", page_icon="🏥", layout="wide")
 
     if "patient" not in st.session_state:
         st.session_state.patient = None

@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 from utils import (
     DATA_INPUT,
     DEMO_PATIENTS,
@@ -22,8 +23,9 @@ from utils import (
 
 def main() -> None:
     initialize_page()
-    st.title("Anamnesis Generator 🚀")
     load_css("base.css")
+    logo_path = os.path.join(os.path.dirname(__file__), "static", "logo.svg")
+    st.image(logo_path, width=250)
 
     column_1, column_2, column_3 = st.columns(COLUMN_RATIO)
     with column_1:
