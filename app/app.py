@@ -83,7 +83,7 @@ def main() -> None:
         if st.session_state.patient and st.session_state.selected_date:
             # Present basic patient data
             basic_information = filter_csv_by_id(
-                "./data/patients.csv", st.session_state.patient, "Id"
+                "patients.csv", st.session_state.patient, "Id"
             )
             display_patient_basic_info(basic_information)
 
