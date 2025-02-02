@@ -1,7 +1,7 @@
 # Data
 raw_data/
 # Really large data file
-data/prompt_input.csv
+app/data/prompt_input.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
