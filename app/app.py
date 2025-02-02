@@ -23,7 +23,7 @@ from utils import (
 def main() -> None:
     initialize_page()
     st.title("Anamnesis Generator 🚀")
-    load_css("static/base.css")
+    load_css("./static/base.css")
 
     column_1, column_2, column_3 = st.columns(COLUMN_RATIO)
     with column_1:
@@ -83,7 +83,7 @@ def main() -> None:
         if st.session_state.patient and st.session_state.selected_date:
             # Present basic patient data
             basic_information = filter_csv_by_id(
-                "data/patients.csv", st.session_state.patient, "Id"
+                "./data/patients.csv", st.session_state.patient, "Id"
             )
             display_patient_basic_info(basic_information)
 
@@ -149,7 +149,7 @@ def main() -> None:
         else:
             st.session_state.typing_done = False
             st.session_state.content = ""
-    st.markdown(load_html("templates/footer.html"), unsafe_allow_html=True)
+    st.markdown(load_html("./templates/footer.html"), unsafe_allow_html=True)
 
 
 if __name__ == "__main__":
