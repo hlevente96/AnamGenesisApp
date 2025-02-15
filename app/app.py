@@ -37,10 +37,6 @@ def main() -> None:
             placeholder="Patient...",
             on_change=reset_button,
         )
-        patient_color = "green" if st.session_state.patient else "red"
-        st.write(
-            f"The following patient has been selected: :{patient_color}[{st.session_state.patient}]"
-        )
 
         # Selecting standard
         st.session_state.standard = st.selectbox(
@@ -49,10 +45,6 @@ def main() -> None:
             index=0,
             placeholder="Anamnesis standard...",
             on_change=reset_button,
-        )
-        standard_color = "green" if st.session_state.standard else "red"
-        st.write(
-            f"The following anamnesis standard has been selected: :{standard_color}[{st.session_state.standard}]"
         )
 
     with column_3:
@@ -65,10 +57,6 @@ def main() -> None:
                 index=2,
                 placeholder="Date...",
                 on_change=reset_button,
-            )
-            date_color = "green" if st.session_state.selected_date else "red"
-            st.write(
-                f"The following date has been selected: :{date_color}[{st.session_state.selected_date}]"
             )
 
     if st.session_state.patient and st.session_state.selected_date:
